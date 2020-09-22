@@ -2,6 +2,8 @@
 require_once 'mysql.php';
 
 
+$sql = "SELECT * FROM product ";
+$result = $pdo->query($sql);
 
 
 ?>
@@ -21,14 +23,8 @@ require_once 'mysql.php';
 <body>
 <section class="container">
     <div class="login">
-        <form name="search" method="post" action="search.php">
-            <input type="search" name="query" placeholder="Поиск">
-            <button type="submit">Найти</button>
-        </form>
         <h1>Таблица товаров</h1>
         <?php
-        $sql = "SELECT * FROM product";
-        $result = $pdo->query($sql);
         echo "<table><tr><th>№</th><th>Товары</th><th>Описание</th><th>Цена</th><th>Фото</th></tr>";
         while ($row = $result->fetch())
         {
@@ -43,6 +39,10 @@ require_once 'mysql.php';
 
         }
         ?>
+        <form action="pousk">
+            <p><input type="text" name="name" value="" placeholder="Название"></p>
+            <p class="submit"><input type="submit" name="commit" value="Добавить"></p>
+        </form>
         </table>
         <br>
 

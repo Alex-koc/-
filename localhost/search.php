@@ -1,38 +1,23 @@
-<?php
-require_once 'mysql.php';
-
-
-
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
     <title>Товары</title>
     <style>
-        .login {
-            width: 700px;
-        }
+
     </style>
 </head>
 <body>
 <section class="container">
     <div class="login">
-        <form name="search" method="post" action="search.php">
-            <input type="search" name="query" placeholder="Поиск">
-            <button type="submit">Найти</button>
-        </form>
         <h1>Таблица товаров</h1>
         <?php
-        $sql = "SELECT * FROM product";
-        $result = $pdo->query($sql);
+        require_once 'mysql.php';
+        $search = $_POST['search'];
+        $stmt= $pdo->query("SELECT * FROM product WHERE `name` LIKE '.$search.'");
         echo "<table><tr><th>№</th><th>Товары</th><th>Описание</th><th>Цена</th><th>Фото</th></tr>";
-        while ($row = $result->fetch())
+        while ($row = $stmt->fetchAll())
         {
-
             echo "<tr>";
             echo '<td>'.$row['id'].'</td>';
             echo '<td>'.$row['name'].'</td>';
