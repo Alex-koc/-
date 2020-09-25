@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 14 2020 г., 07:05
+-- Время создания: Сен 25 2020 г., 07:02
 -- Версия сервера: 5.6.41
 -- Версия PHP: 7.2.10
 
@@ -33,19 +33,21 @@ CREATE TABLE `product` (
   `name` varchar(255) NOT NULL,
   `text` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL,
-  `photo` varchar(255) NOT NULL
+  `photo` varchar(255) NOT NULL,
+  `сat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `text`, `price`, `photo`) VALUES
-(2, '', '', '', 'zelenoe.jpg'),
-(3, '', '', '', 'apple-clip-art-green-apple-png-clipart-picture-thumb.jpg'),
-(4, '', '', '', '6XZSr6ddCl6cxfo0UchP.jpg'),
-(5, 'Мандарин', 'Оранжевый мандарин', '15', 'mandarin-cover-3021.jpg'),
-(6, '', '', '', 'Без названия.jfif');
+INSERT INTO `product` (`id`, `name`, `text`, `price`, `photo`, `сat`) VALUES
+(2, 'Яблоко', 'Марроко', '12', '/images/products/100165.aromatizator-ngf---zelenoe-yabloko.500x0.jpg', 0),
+(3, 'Яблоко', 'Дагестан Дагестан', '12', '/images/products/depositphotos_16322913-stock-photo-red-apple.jpg', 0),
+(4, 'Мандарин', 'Сладкое', '14', '/images/products/6XZSr6ddCl6cxfo0UchP.jpg', 0),
+(5, 'Апельсин', 'Кислый из Марроко', '15', '/images/products/unnamed (1).jpg', 0),
+(6, 'Банан', 'Африка', '18', '/images/products/Без названия.jfif', 0),
+(7, 'Инжир', 'Плод фигового дерева', '500', '/images/products/143-1.jpg', 0);
 
 --
 -- Индексы сохранённых таблиц
@@ -65,7 +67,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT для таблицы `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

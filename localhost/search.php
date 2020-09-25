@@ -14,9 +14,11 @@
         <?php
         require_once 'mysql.php';
         $search = $_POST['search'];
-        $stmt= $pdo->query("SELECT * FROM product WHERE `name` LIKE '.$search.'");
+        $stmt= $pdo->query('SELECT * FROM product WHERE `name` LIKE "%'.$search.'%"');
+        $stmt= $pdo->query('SELECT * FROM product WHERE `text` LIKE "%'.$search.'%"');
+        $stmt= $pdo->query('SELECT * FROM product WHERE `price` LIKE "%'.$search.'%"');
         echo "<table><tr><th>№</th><th>Товары</th><th>Описание</th><th>Цена</th><th>Фото</th></tr>";
-        while ($row = $stmt->fetchAll())
+        foreach ($stmt as $row)
         {
             echo "<tr>";
             echo '<td>'.$row['id'].'</td>';
@@ -30,7 +32,14 @@
         ?>
         </table>
         <br>
-
+        <form action="spisok.php">
+            <br>
+            <button>Таблица</button>
+        </form>
+        <form action="main.html">
+            <br>
+            <button>Главное меню</button>
+        </form>
     </div>
 </section>
 </body>

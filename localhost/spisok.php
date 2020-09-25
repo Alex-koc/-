@@ -14,7 +14,7 @@ require_once 'mysql.php';
     <title>Товары</title>
     <style>
         .login {
-            width: 700px;
+            width: 620px;
         }
     </style>
 </head>
@@ -22,7 +22,7 @@ require_once 'mysql.php';
 <section class="container">
     <div class="login">
         <form name="search" method="post" action="search.php">
-            <input type="search" name="query" placeholder="Поиск">
+            <input type="" name="search" placeholder="Поиск">
             <button type="submit">Найти</button>
         </form>
         <h1>Таблица товаров</h1>
@@ -45,7 +45,10 @@ require_once 'mysql.php';
         ?>
         </table>
         <br>
-
+        <form action="main.html">
+            <br>
+            <button>Главное меню</button>
+        </form>
     </div>
 </section>
 </body>
